@@ -18,7 +18,7 @@ rails db:migrate
 
 ```ruby
 class Book < ApplicationRecord
-  enum status: { available: 0, rented: 1 }
+  enum :status, available: 0, rented: 1
 
   has_many :rentals, dependent: :destroy
 end
