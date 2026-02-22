@@ -1,0 +1,23 @@
+<h1>Book Rental</h1>
+
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Status</th>
+    <th>Current Renter</th>
+    <th>Stat</th>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.status %></td>
+        <td><%= book.rentals.present? ? book.rentals.last.renter_name : '-' %></td>
+        <td><%= book.rentals.size %> total rentals</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
