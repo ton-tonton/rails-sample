@@ -14,11 +14,21 @@ rails db:migrate
 ```
 
 ### Step 2: Model Configuration
-Define status enums in `app/models/book.rb` to manage availability states.
+`app/models/book.rb`
 
 ```ruby
 class Book < ApplicationRecord
   enum status: { available: 0, rented: 1 }
+
+  has_many :rentals, dependent: :destroy
+end
+```
+
+`app/models/rental.rb`
+
+```ruby
+class Rental < ApplicationRecord
+  belongs_to :book
 end
 ```
 
