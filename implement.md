@@ -139,7 +139,8 @@ gem 'pagy', '~> 43.2'
 
 **Controller:**
 ```ruby
-include Pagy::Backend
+include Pagy::Method
+
 def index
   @pagy, @books = pagy(:offset, Book.includes(:rentals).all)
 end
