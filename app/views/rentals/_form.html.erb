@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :book_id, style: "display: block" %>
-    <%= form.collection_select :book_id, Book.all, :id, :title, prompt: true %>
+    <%= form.collection_select :book_id, Book.all.available.or(Book.where(id: form.object.book_id)), :id, :title, prompt: true %>
   </div>
 
   <div>
