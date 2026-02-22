@@ -1,4 +1,4 @@
-# Rails Developer Interview Task: Book Rental System
+# Rails: Book Rental System
 
 **Goal:** Build a simple Book Rental tracking system.
 
@@ -11,20 +11,20 @@ Create the necessary models and migrations with appropriate attributes.
 
 ```mermaid
 erDiagram
-    Book ||--o{ Rental : "has_many"
+  Book ||--o{ Rental : "has_many"
 
-    Book {
-        string title
-        string author
-        string status "enum: available, rented"
-    }
+  Book {
+    string title
+    string author
+    integer status "enum: available, rented"
+  }
 
-    Rental {
-        integer book_id
-        string renter_name
-        datetime rented_at
-        datetime returned_at
-    }
+  Rental {
+    integer book_id
+    string renter_name
+    datetime rented_at
+    datetime returned_at
+  }
 ```
 
 *   **Book**: Represents a book in the library.
@@ -34,9 +34,17 @@ erDiagram
 
 1.  **CRUD Operations**: Implement basic Create, Read, Update, Delete for `Book` and `Rental` models.
 2.  **Dashboard (Root Path)**:
-    *   Display a list of **all books**.
-    *   For each book, display its **Status**:
-        *   **Available**: The book is ready to be rented.
-        *   **Rented**: The book is currently out.
-    *   **Current Rental Info**: If a book is rented, display the current renter's name.
-    *   **Stats**: Display a generic counter at the top showing the **Total Number of Books Currently Rented**.
+  *   Display a list of **all books**.
+  *   For each book, display its **Status**:
+      *   **Available**: The book is ready to be rented.
+      *   **Rented**: The book is currently out.
+  *   **Current Rental Info**: If a book is rented, display the current renter's name.
+  *   **Stats**: Display a generic counter showing the **Total Number of Books Currently Rented**.
+
+**Example Dashboard Table:**
+
+| Title | Author | Status | Current Renter | Stats |
+|---|---|---|---|---|
+| The Pragmatic Programmer | David Thomas, Andrew Hunt | Available | - | 15 total rentals |
+| Clean Code | Robert C. Martin | Rented | Alice Smith | 42 total rentals |
+| Refactoring | Martin Fowler | Available | - | 8 total rentals |
