@@ -1,5 +1,5 @@
 class Rental < ApplicationRecord
-  belongs_to :book
+  belongs_to :book, counter_cache: true
 
   validates :renter_name, presence: true
   validates :rented_at, presence: true

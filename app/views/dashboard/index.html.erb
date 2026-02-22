@@ -15,8 +15,8 @@
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.status %></td>
-        <td><%= book.rentals.present? ? book.rentals.last.renter_name : '-' %></td>
-        <td><%= book.rentals.size %> total rentals</td>
+        <td><%= book.active_rental.present? ? book.active_rental.renter_name : '-' %></td>
+        <td><%= book.rentals_count %> total rentals</td>
       </tr>
     <% end %>
   </tbody>
